@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data Science Laboratory | Mohan Babu University</title>
+  <meta name="description" content="Data Science Laboratory experiment portal of Mohan Babu University.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js"></script>
+</head>
+<body>
+<a class="sr-only" href="#experiments">Skip to experiments</a>
+<div class="layout">
+  <div class="main">
+    <header class="topbar">
+      <div class="navbar-row">
+        <div class="navbar-content" id="primaryNavigation"></div>
+        <div class="navbar-actions">
+          <span class="user-badge" id="activeUserBadge"></span>
+          <button class="icon-btn" id="themeToggle" type="button"></button>
+        </div>
+      </div>
+      <div class="topbar-meta" id="studentMeta"></div>
+    </header>
+
+    <main class="container page-enter">
+      <div class="environment-decor" aria-hidden="true">
+        <svg class="rift-vines" viewBox="0 0 1440 1200" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="vine-crimson" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff2438"/><stop offset=".55" stop-color="#79152d"/><stop offset="1" stop-color="#292044"/></linearGradient>
+            <linearGradient id="vine-indigo" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7185ff"/><stop offset=".5" stop-color="#34366f"/><stop offset="1" stop-color="#451b35"/></linearGradient>
+            <filter id="vine-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#vine-glow)">
+            <g stroke="url(#vine-crimson)" stroke-width="5">
+              <path d="M-15 0C48 42 2 82 42 116S65 184 27 213 2 275 44 300 57 359 15 391"/>
+              <path d="M42 116C87 117 91 91 106 62M28 213C75 207 99 231 117 263M44 300C88 284 106 297 129 326"/>
+              <path d="M1455 0C1390 43 1442 79 1401 119S1383 186 1421 215 1448 275 1405 304 1394 365 1437 397"/>
+              <path d="M1401 119C1356 116 1349 88 1333 60M1421 215C1371 210 1352 238 1331 268M1405 304C1361 286 1340 305 1318 333"/>
+              <path d="M-12 1200C53 1154 2 1111 42 1075S64 1008 27 980 0 916 44 890 57 830 14 800"/>
+              <path d="M42 1075C87 1074 91 1101 106 1130M28 980C75 986 99 961 117 930M44 890C88 906 106 893 129 864"/>
+              <path d="M1452 1200C1388 1157 1441 1117 1400 1075S1383 1009 1420 978 1448 918 1405 889 1393 832 1435 800"/>
+              <path d="M1400 1075C1356 1077 1348 1105 1333 1133M1420 978C1371 984 1351 959 1330 929M1405 889C1361 905 1340 891 1318 862"/>
+            </g>
+            <g stroke="url(#vine-indigo)" stroke-width="3">
+              <path d="M0 28C54 65 17 98 57 132M0 164C33 147 52 160 67 181M1440 33C1386 68 1421 101 1382 136M1440 168C1406 149 1386 165 1371 186"/>
+              <path d="M0 1168C55 1132 17 1100 57 1065M0 1035C34 1053 51 1040 67 1018M1440 1168C1386 1133 1421 1100 1382 1064M1440 1032C1406 1052 1386 1037 1371 1015"/>
+              <path d="M42 116C17 92 18 70 26 48M42 116C12 129 5 147 7 164M28 213C3 222-5 238-4 254M1401 119C1426 94 1425 71 1417 48M1401 119C1431 131 1437 148 1436 165M1421 215C1446 224 1453 241 1452 258"/>
+            </g>
+          </g>
+          <g fill="#e50914" opacity=".78">
+            <circle cx="53" cy="121" r="3"/><circle cx="1394" cy="124" r="3"/><circle cx="52" cy="1072" r="3"/><circle cx="1393" cy="1071" r="3"/>
+          </g>
+        </svg>
+        <svg class="ember-field" viewBox="0 0 1440 900" preserveAspectRatio="none">
+          <circle cx="175" cy="132" r="2"/><circle cx="318" cy="360" r="1.5"/><circle cx="542" cy="114" r="1.5"/>
+          <circle cx="1160" cy="220" r="2"/><circle cx="1290" cy="450" r="1.5"/><circle cx="1035" cy="655" r="2"/>
+          <circle cx="285" cy="760" r="1.5"/><circle cx="815" cy="530" r="1.5"/><circle cx="694" cy="275" r="2"/>
+          <circle cx="450" cy="620" r="1.5"/><circle cx="1350" cy="770" r="2"/><circle cx="90" cy="485" r="1.5"/>
+        </svg>
+      </div>
+      <!-- HEADER + PROFILE -->
+      <section class="hero" id="dashboard" aria-labelledby="uniName">
+        <div class="hero-left">
+          <img class="hero-logo" src="assets/images/mbu-logo.png" alt="Mohan Babu University Logo">
+          <h1 class="uni-name" id="uniName">MOHAN BABU<br>UNIVERSITY</h1>
+          <p class="uni-sub">Data Science Laboratory &mdash; Experiment Management Portal</p>
+          <div class="hero-tags" id="heroTags"></div>
+        </div>
+        <aside class="hero-right">
+          <div class="profile-card" id="profile" aria-label="Student profile">
+            <div class="profile-head">
+              <div class="avatar" aria-hidden="true">&#9786;</div>
+              <div><small>Profile</small><h3 id="pName">SAI DARSINI S</h3></div>
+            </div>
+            <div class="profile-grid">
+              <div><span>Roll Number</span><strong id="pRoll">24102A030070</strong></div>
+              <div><span>Section</span><strong id="pSec">DS-2</strong></div>
+              <div><span>Semester</span><strong id="pSem">5</strong></div>
+              <div><span>Branch</span><strong id="pBranch">Data Science</strong></div>
+              <div><span>Degree</span><strong id="pDegree">B.Tech</strong></div>
+              <div><span>Faculty</span><strong id="pFaculty">Faculty Name</strong></div>
+            </div>
+            <button class="btn btn-sm edit-link" id="editProfileBtn" type="button">&#9998; Edit profile</button>
+          </div>
+        </aside>
+      </section>
+
+      <section id="flashcards" class="flashcards-section" aria-labelledby="flashcardsTitle">
+        <svg class="flashlight-illustration" viewBox="0 0 280 190" aria-hidden="true">
+          <defs>
+            <radialGradient id="torch-beam"><stop stop-color="#fff4bd" stop-opacity=".8"/><stop offset=".28" stop-color="#ffbd4b" stop-opacity=".34"/><stop offset="1" stop-color="#ff8a22" stop-opacity="0"/></radialGradient>
+            <linearGradient id="torch-metal" x2="0" y2="1"><stop stop-color="#858896"/><stop offset=".35" stop-color="#262b3a"/><stop offset=".7" stop-color="#111522"/><stop offset="1" stop-color="#737987"/></linearGradient>
+            <filter id="torch-glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <path d="M90 39L270 86 176 190 79 65Z" fill="url(#torch-beam)" opacity=".8"/>
+          <g transform="rotate(35 76 42)" filter="url(#torch-glow)">
+            <rect x="25" y="29" width="108" height="24" rx="10" fill="url(#torch-metal)" stroke="#b9bdc9" stroke-width="2"/>
+            <path d="M34 31v20m8-20v20m42-19v18m7-18v18" stroke="#111522" stroke-width="3"/>
+            <path d="M16 25h17v32H16l-9-6V31Z" fill="#414656" stroke="#d5d5d2" stroke-width="2"/>
+            <ellipse cx="11" cy="41" rx="5" ry="13" fill="#fff0a0" stroke="#ffb83d" stroke-width="3"/>
+            <path d="M119 34h12v14h-12" fill="#383d4b" stroke="#b9bdc9" stroke-width="2"/>
+            <path d="M64 33h12v16H64" fill="#151925" stroke="#aeb4c1"/>
+          </g>
+        </svg>
+        <div class="flashcards-heading">
+          <div>
+            <h2 class="section-title" id="flashcardsTitle">Stranger Flashcards</h2>
+            <p class="section-sub">Turn over a mystery to uncover a data science concept.</p>
+          </div>
+          <span class="flashcards-kicker">FIELD NOTES // 1986</span>
+        </div>
+        <div class="flashcards-layout">
+          <button class="flashcard" id="flashcard" type="button" aria-pressed="false" aria-label="Flip flashcard">
+            <span class="flashcard-inner" id="flashcardInner"></span>
+          </button>
+          <div class="flashcards-controls">
+            <p class="flashcard-hint">Click, hover, or use the flip control to reveal the answer.</p>
+            <div class="flashcard-navigation">
+              <button class="btn btn-ghost" id="previousFlashcard" type="button" aria-label="Previous flashcard">PREV</button>
+              <button class="btn btn-ghost" id="flipFlashcard" type="button" aria-pressed="false">FLIP CARD</button>
+              <span class="flashcard-count" id="flashcardCount" aria-live="polite"></span>
+              <button class="btn btn-primary" id="nextFlashcard" type="button" aria-label="Next flashcard">NEXT</button>
+            </div>
+            <svg class="rift-analyzer" viewBox="0 0 300 166" aria-hidden="true">
+              <defs>
+                <linearGradient id="monitor-edge" x2="1" y2="1"><stop stop-color="#a98cff"/><stop offset="1" stop-color="#e50914"/></linearGradient>
+                <pattern id="monitor-grid" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M12 0H0V12" fill="none" stroke="#32365a" stroke-width=".6"/></pattern>
+                <filter id="monitor-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <rect x="7" y="9" width="286" height="144" rx="8" fill="#100f1b" stroke="url(#monitor-edge)" stroke-width="3" filter="url(#monitor-glow)"/>
+              <rect x="17" y="19" width="266" height="124" rx="3" fill="url(#monitor-grid)" stroke="#3b426e"/>
+              <g fill="#f1d7d0" font-family="monospace">
+                <text x="132" y="46" font-size="11" font-weight="700">DEMOGORGON</text>
+                <text x="132" y="60" font-size="11" font-weight="700">ANALYZER</text>
+                <text x="132" y="84" font-size="9" fill="#ed6b77">THE RIFT</text>
+                <text x="132" y="98" font-size="8" fill="#aeb2cc">Anomaly data</text>
+                <text x="132" y="110" font-size="8" fill="#aeb2cc">telemetry view</text>
+              </g>
+              <g transform="translate(76 84)" fill="#9e374c" stroke="#f56b80" stroke-width="1.5">
+                <path d="M0-33-9-21-23-24-17-11-30-3-16 2-22 18-8 13 0 29 8 13 22 18 16 2 30-3 17-11 23-24 9-21Z"/>
+                <path d="M-6-8l-8-7 2 13m18-6 8-7-2 13M-7 3l-7 9 12-2m9-7 7 9-12-2" fill="#251a28"/>
+                <circle cx="-5" cy="-5" r="1.5" fill="#ffc6a4"/><circle cx="5" cy="-5" r="1.5" fill="#ffc6a4"/>
+              </g>
+              <path d="M129 123h140" stroke="#e50914" stroke-width="1.5" opacity=".8"/>
+              <circle cx="273" cy="27" r="3" fill="#ff3045"/>
+              <text x="22" y="34" fill="#858bb2" font-family="monospace" font-size="7">SIGNAL: 98.4</text>
+            </svg>
+            <svg class="radio-illustration" viewBox="0 0 92 145" aria-hidden="true">
+              <defs><linearGradient id="radio-case" x2="1"><stop stop-color="#555b68"/><stop offset=".45" stop-color="#191e2b"/><stop offset="1" stop-color="#343a49"/></linearGradient><filter id="radio-glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+              <path d="M48 37 66 4" stroke="#b1b4bb" stroke-width="3" stroke-linecap="round"/>
+              <path d="M63 8l9-6m-4 12 11-7" stroke="#6d7182" stroke-width="1"/>
+              <g filter="url(#radio-glow)">
+                <path d="M23 34h46l8 12v83H16V46Z" fill="url(#radio-case)" stroke="#9296a5" stroke-width="2"/>
+                <rect x="24" y="49" width="31" height="23" rx="2" fill="#122c35" stroke="#66bad1"/>
+                <path d="M28 65h3v-6h3v6h3v-11h3v11h3v-7h3v7h3" fill="none" stroke="#7ce0cd" stroke-width="1.5"/>
+                <circle cx="63" cy="55" r="5" fill="#363b48" stroke="#c3a16c"/><circle cx="63" cy="55" r="2" fill="#edc578"/>
+                <path d="M25 80h43M25 87h43M25 94h43M25 101h43" stroke="#777d8c" stroke-width="2"/>
+                <circle cx="33" cy="113" r="4" fill="#e8545a"/><circle cx="48" cy="113" r="4" fill="#d29b48"/><circle cx="63" cy="113" r="4" fill="#6db5cf"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <svg class="cassette-illustration" viewBox="0 0 112 72" aria-hidden="true">
+          <defs><linearGradient id="cassette-shell" x2="0" y2="1"><stop stop-color="#63616c"/><stop offset="1" stop-color="#1a1b26"/></linearGradient></defs>
+          <g transform="rotate(-10 56 36)">
+            <rect x="4" y="8" width="104" height="56" rx="6" fill="url(#cassette-shell)" stroke="#d0c2ae" stroke-width="2"/>
+            <rect x="12" y="14" width="88" height="9" rx="2" fill="#c4a66e"/>
+            <circle cx="32" cy="39" r="12" fill="#12141d" stroke="#aaa2a3" stroke-width="2"/><circle cx="32" cy="39" r="4" fill="#797480"/>
+            <circle cx="80" cy="39" r="12" fill="#12141d" stroke="#aaa2a3" stroke-width="2"/><circle cx="80" cy="39" r="4" fill="#797480"/>
+            <path d="M41 48h30l-5 9H46Z" fill="#201b25" stroke="#bf9d75"/>
+            <path d="M20 27h72" stroke="#dfd1bd" stroke-width="1" opacity=".6"/>
+          </g>
+        </svg>
+        <svg class="fairy-lights" viewBox="0 0 1200 58" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 8C170 52 280 0 440 27S720 57 850 22 1050 0 1200 31" fill="none" stroke="#858098" stroke-width="2"/>
+          <g class="light-bulbs">
+            <path d="M82 24v8" stroke="#a29bab"/><ellipse cx="82" cy="38" rx="5" ry="8" fill="#ed334d"/>
+            <path d="M190 22v8" stroke="#a29bab"/><ellipse cx="190" cy="36" rx="5" ry="8" fill="#e8bd45"/>
+            <path d="M298 20v8" stroke="#a29bab"/><ellipse cx="298" cy="34" rx="5" ry="8" fill="#4dc996"/>
+            <path d="M407 22v8" stroke="#a29bab"/><ellipse cx="407" cy="36" rx="5" ry="8" fill="#5596ef"/>
+            <path d="M516 29v8" stroke="#a29bab"/><ellipse cx="516" cy="43" rx="5" ry="8" fill="#fa8d36"/>
+            <path d="M625 36v8" stroke="#a29bab"/><ellipse cx="625" cy="50" rx="5" ry="7" fill="#ed334d"/>
+            <path d="M734 38v8" stroke="#a29bab"/><ellipse cx="734" cy="52" rx="5" ry="7" fill="#e8bd45"/>
+            <path d="M843 34v8" stroke="#a29bab"/><ellipse cx="843" cy="48" rx="5" ry="7" fill="#4dc996"/>
+            <path d="M952 20v8" stroke="#a29bab"/><ellipse cx="952" cy="34" rx="5" ry="8" fill="#5596ef"/>
+            <path d="M1060 16v8" stroke="#a29bab"/><ellipse cx="1060" cy="30" rx="5" ry="8" fill="#fa8d36"/>
+            <path d="M1140 21v8" stroke="#a29bab"/><ellipse cx="1140" cy="35" rx="5" ry="8" fill="#ed334d"/>
+          </g>
+        </svg>
+      </section>
+
+      <!-- CAREERS & TOOLS OVERVIEW (NEW SECTION) -->
+      <section id="careers-overview" aria-labelledby="careerTitle" class="career-section">
+        <h2 class="section-title" id="careerTitle">Career Paths & Required Tools</h2>
+        <p class="section-sub">Explore industry tech stacks, required skill sets, and production tools across top data and engineering tracks.</p>
+        <div id="careersGrid" class="career-grid"></div>
+      </section>
+
+      <section id="modules-section" aria-labelledby="modulesTitle" class="modules-section">
+        <svg class="backpack-illustration" viewBox="0 0 150 184" aria-hidden="true">
+          <defs><linearGradient id="bag-canvas" x2="1" y2="1"><stop stop-color="#657084"/><stop offset=".48" stop-color="#273449"/><stop offset="1" stop-color="#182133"/></linearGradient><filter id="bag-shadow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+          <g filter="url(#bag-shadow)" stroke="#a4a3a4" stroke-width="2">
+            <path d="M52 37c0-19 10-29 23-29s23 10 23 29" fill="none" stroke="#8c786e" stroke-width="7"/>
+            <path d="M37 45c0-13 12-22 38-22s38 9 38 22l12 109c1 12-9 20-22 20H46c-13 0-23-8-22-20Z" fill="url(#bag-canvas)"/>
+            <path d="M46 111c0-13 11-19 29-19s29 6 29 19l5 39H41Z" fill="#384356" stroke="#b58a5e"/>
+            <path d="M44 71c14-10 48-10 62 0" fill="none" stroke="#a7988b" stroke-width="3"/>
+            <path d="M36 61 24 139m90-78 12 78" fill="none" stroke="#1b2432" stroke-width="7"/>
+          </g>
+          <g stroke="#e3c17a" stroke-width="1.5">
+            <circle cx="53" cy="57" r="8" fill="#9b3d50"/><path d="m53 51 2 5 5 1-4 3 1 5-4-3-4 3 1-5-4-3 5-1Z" fill="#e6bf73"/>
+            <circle cx="79" cy="49" r="7" fill="#425f7c"/><circle cx="79" cy="49" r="2" fill="#a9d5dd"/>
+            <circle cx="100" cy="61" r="8" fill="#725a89"/><path d="M96 61h8m-4-4v8" stroke="#d8c2e9"/>
+            <path d="m64 80 12-5 12 5-2 12H66Z" fill="#8b4d38"/><path d="M69 83h14m-11 4h8" stroke="#efcb89"/>
+          </g>
+          <path d="M37 128h76" stroke="#d4b783" stroke-width="2" opacity=".8"/>
+          <circle cx="75" cy="110" r="3" fill="#e1c783"/>
+        </svg>
+        <svg class="books-illustration" viewBox="0 0 180 116" aria-hidden="true">
+          <g stroke="#c5a77d" stroke-width="2">
+            <path d="m20 76 124-20 13 28-126 22Z" fill="#57443b"/>
+            <path d="m14 48 130-14 10 27L24 80Z" fill="#34434b"/>
+            <path d="m29 20 119 9-3 25-121-8Z" fill="#743d3c"/>
+          </g>
+          <path d="m42 29 89 7m-94 20 99-11m-87 39 91-17" stroke="#e2c89e" stroke-width="1" opacity=".7"/>
+          <g fill="#dfc99f" font-family="Georgia,serif" font-weight="700" font-size="8">
+            <text x="53" y="42" transform="rotate(4 53 42)">HAWKINS HIGH</text>
+            <text x="51" y="66" transform="rotate(-6 51 66)">SCIENCE</text>
+            <text x="47" y="91" transform="rotate(-9 47 91)">FIELD GUIDE</text>
+          </g>
+        </svg>
+        <h2 class="section-title" id="modulesTitle">Academic Modules</h2>
+        <p class="section-sub">Explore the laboratory curriculum by module and jump directly to its experiments.</p>
+        <div id="modulesGrid" class="modules-grid"></div>
+      </section>
+
+      <!-- SEARCH -->
+      <section id="experiments" aria-labelledby="searchTitle" class="dashboard-section">
+        <h2 class="section-title" id="searchTitle">Search Experiments</h2>
+        <p class="section-sub">Search by experiment number, name, topic, keyword or sub-experiment.</p>
+        <div class="search-row">
+          <div class="search-box">
+            <span class="s-ico" aria-hidden="true">&#128269;</span>
+            <label class="sr-only" for="searchInput">Search experiments</label>
+            <input type="search" id="searchInput" placeholder="Search experiment name, topic, or experiment number..." autocomplete="off">
+          </div>
+          <button class="btn btn-primary" id="addBtn" type="button" aria-haspopup="dialog">+ Add Experiment</button>
+        </div>
+        <div class="search-meta" id="searchMeta" aria-live="polite"></div>
+        <div id="moduleFilters" class="module-filters" role="group" aria-label="Filter experiments by academic module"></div>
+
+        <div class="grid" id="grid"></div>
+        <div class="empty" id="empty" hidden>
+          <div class="big" aria-hidden="true">&#128269;</div>
+          <h3>No experiments found</h3>
+          <p>Try searching with another keyword.</p>
+        </div>
+      </section>
+
+      <!-- RESOURCES -->
+      <section id="resources" aria-labelledby="resTitle">
+        <h2 class="section-title" id="resTitle">Resources</h2>
+        <p class="section-sub">Official documentation used throughout the laboratory.</p>
+        <div class="resources-list" id="resourcesList"></div>
+      </section>
+
+      <footer class="footer">&copy; <span id="year"></span> Mohan Babu University &middot; Department of Computer Science &amp; Engineering &middot; Data Science Laboratory</footer>
+    </main>
+  </div>
+</div>
+
+<!-- ADD EXPERIMENT MODAL -->
+<div class="modal-overlay" id="addOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="addTitle">
+    <div class="modal-head">
+      <div><h3 id="addTitle">Add Experiment</h3><p>New experiments are saved in this browser and appear on the dashboard.</p></div>
+      <button class="icon-btn" type="button" data-close aria-label="Close dialog">&#10005;</button>
+    </div>
+    <form id="addForm" novalidate>
+      <div class="form-grid">
+        <div class="field">
+          <label for="fNumber">Experiment Number *</label>
+          <input id="fNumber" name="number" type="number" min="1" max="99" placeholder="e.g. 7" required>
+          <span class="err" id="eNumber" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="fName">Experiment Name *</label>
+          <input id="fName" name="name" type="text" maxlength="120" placeholder="e.g. Time Series Forecasting" required>
+          <span class="err" id="eName" role="alert"></span>
+        </div>
+        <div class="field full">
+          <label for="fDesc">Description *</label>
+          <textarea id="fDesc" name="description" rows="4" placeholder="Purpose, dataset, method and expected learning..." required></textarea>
+          <span class="err" id="eDesc" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="fYt">YouTube URL</label>
+          <input id="fYt" name="youtube" type="url" placeholder="https://www.youtube.com/watch?v=...">
+          <span class="err" id="eYt" role="alert"></span>
+        </div>
+        <div class="field">
+          <label for="fGh">GitHub URL</label>
+          <input id="fGh" name="github" type="url" placeholder="https://github.com/user/repo">
+          <span class="err" id="eGh" role="alert"></span>
+        </div>
+        <div class="field full">
+          <label for="fSubs">Sub-experiment names</label>
+          <textarea id="fSubs" name="subs" rows="3" placeholder="One per line or comma separated, e.g. Trend analysis, Seasonality, ARIMA"></textarea>
+          <small>Leave empty for three default parts.</small>
+          <span class="err" id="eSubs" role="alert"></span>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close>Cancel</button>
+        <button class="btn btn-primary" type="submit">Save Experiment</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- EDIT PROFILE MODAL -->
+<div class="modal-overlay" id="profileOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="profTitle">
+    <div class="modal-head">
+      <div><h3 id="profTitle">Edit Profile</h3><p>Shown in the dashboard profile card and saved in this browser.</p></div>
+      <button class="icon-btn" type="button" data-close aria-label="Close dialog">&#10005;</button>
+    </div>
+    <form id="profileForm" novalidate>
+      <div class="form-grid">
+        <div class="field"><label for="sName">Student Name</label><input id="sName" name="name" type="text" maxlength="60" value="SAI DARSINI S"></div>
+        <div class="field"><label for="sRoll">Roll Number</label><input id="sRoll" name="roll" type="text" maxlength="30" value="24102A030070"></div>
+        <div class="field"><label for="sSec">Section</label><input id="sSec" name="sec" type="text" maxlength="20" value="DS-2"></div>
+        <div class="field"><label for="sSem">Semester</label><input id="sSem" name="sem" type="text" maxlength="20" value="5"></div>
+        <div class="field"><label for="sBranch">Branch</label><input id="sBranch" name="branch" type="text" maxlength="60" value="Data Science"></div>
+        <div class="field"><label for="sFaculty">Faculty Name</label><input id="sFaculty" name="faculty" type="text" maxlength="60" value="Faculty Name"></div>
+        <div class="field"><label for="sDegree">Degree</label><input id="sDegree" name="degree" type="text" maxlength="30" value="B.Tech"></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" type="button" data-close>Cancel</button>
+        <button class="btn btn-primary" type="submit">Save Profile</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/index.js"></script>
+</body>
+</html>

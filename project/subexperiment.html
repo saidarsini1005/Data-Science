@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sub Experiment | Data Science Laboratory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js"></script>
+</head>
+<body>
+<a class="sr-only" href="#content">Skip to content</a>
+<div class="layout">
+  <div class="main">
+    <header class="topbar">
+      <div class="navbar-row">
+        <div class="navbar-content" id="primaryNavigation"></div>
+        <div class="navbar-actions">
+          <span class="user-badge" id="activeUserBadge"></span>
+          <button class="icon-btn" id="themeToggle" type="button"></button>
+        </div>
+      </div>
+      <div class="topbar-meta" id="studentMeta"></div>
+      <nav class="crumbs page-crumbs" id="crumbs" aria-label="Breadcrumb"></nav>
+    </header>
+
+    <main class="container page-enter" id="content">
+      <div class="loader" role="status" aria-label="Loading sub-experiment"><div class="spinner"></div></div>
+    </main>
+  </div>
+</div>
+<script src="js/python-runner.js"></script>
+<script src="js/subexperiment.js"></script>
+</body>
+</html>
