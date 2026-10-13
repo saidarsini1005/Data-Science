@@ -110,6 +110,7 @@
       '<div class="module-topics" aria-label="Topics covered">' + module.topics.map(function (topic) {
         return '<span class="module-topic">' + esc(topic) + '</span>';
       }).join("") + '</div>' +
+      '<button class="module-notes-button" type="button" data-open-notes="' + esc(module.number) + '">Open Notes &amp; Reader <span aria-hidden="true">&#8594;</span></button>' +
       '<div class="module-experiments" aria-label="Experiments in module">' + experimentLinks + '</div>' +
       '</article>';
   }).join("");
@@ -227,6 +228,7 @@
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   document.querySelectorAll(".modal-overlay").forEach(function (ov) {
+    if (ov.id === "notesOverlay") return;
     ov.addEventListener("click", function (e) { if (e.target === ov || e.target.closest("[data-close]")) closeModal(ov); });
     ov.addEventListener("keydown", function (e) {
       if (e.key === "Tab") {  // keep focus inside the dialog
@@ -238,7 +240,7 @@
     });
   });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") document.querySelectorAll(".modal-overlay.open").forEach(closeModal);
+    if (e.key === "Escape") document.querySelectorAll(".modal-overlay.open:not(#notesOverlay)").forEach(closeModal);
   });
 
   /* ----- Add experiment ----- */

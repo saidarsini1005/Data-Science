@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/data.js"></script>
+  <script src="js/notes-data.js"></script>
 </head>
 <body>
 <a class="sr-only" href="#experiments">Skip to experiments</a>
@@ -346,6 +347,65 @@
   </div>
 </div>
 
+<!-- MODULE NOTES READER -->
+<div class="modal-overlay notes-overlay" id="notesOverlay" aria-hidden="true">
+  <section class="modal notes-dialog" role="dialog" aria-modal="true" aria-labelledby="notesTitle">
+    <div class="modal-head notes-head">
+      <div>
+        <p class="notes-kicker">HAWKINS LAB // FIELD ARCHIVE</p>
+        <h3 id="notesTitle">Module Notes</h3>
+        <p id="notesSubtitle">Laboratory notes and worked examples</p>
+      </div>
+      <button class="icon-btn" id="closeNotesReader" type="button" aria-label="Close notes reader">&#10005;</button>
+    </div>
+    <div class="notes-toolbar" aria-label="Reader settings">
+      <div class="notes-control-group" role="group" aria-label="Page layout">
+        <button class="notes-control is-active" type="button" data-reader-mode="book" aria-pressed="true">Book Flip</button>
+        <button class="notes-control" type="button" data-reader-mode="scroll" aria-pressed="false">Vertical View</button>
+      </div>
+      <div class="notes-control-group" role="group" aria-label="Notes source">
+        <button class="notes-control is-active" type="button" data-reader-source="native" aria-pressed="true">Native Notes</button>
+        <button class="notes-control" type="button" data-reader-source="pdf" aria-pressed="false">Embedded PDF</button>
+      </div>
+      <button class="notes-download" id="downloadNotesPdf" type="button">&#8681; Download PDF</button>
+    </div>
+    <div class="notes-reader-error" id="notesReaderError" role="status" hidden></div>
+    <div id="nativeNotesReader">
+      <div class="notes-book-view" id="bookView">
+        <div class="notes-book" id="notesBook" aria-live="polite">
+          <div class="notes-spread" id="notesSpread"></div>
+        </div>
+        <div class="notes-pagination">
+          <button class="notes-control" type="button" data-page-step="-1" aria-label="Previous page spread">&#9664; PREV PAGE</button>
+          <span id="bookPageCount" aria-live="polite"></span>
+          <span id="spreadCount" aria-live="polite"></span>
+          <button class="notes-control" type="button" data-page-step="1" aria-label="Next page spread">NEXT PAGE &#9654;</button>
+        </div>
+      </div>
+      <div class="notes-scroll-view" id="scrollView" hidden>
+        <aside class="notes-thumbnails">
+          <h4>Jump to page</h4>
+          <div id="notesThumbnails"></div>
+        </aside>
+        <div class="notes-scroll-content">
+          <div class="notes-zoom-controls" role="group" aria-label="Zoom controls">
+            <button class="notes-control" type="button" data-zoom="-0.1" aria-label="Zoom out">−</button>
+            <span id="zoomLevel">100%</span>
+            <button class="notes-control" type="button" data-zoom="0.1" aria-label="Zoom in">+</button>
+          </div>
+          <div class="notes-pages-scroll" id="notesPagesScroll"></div>
+        </div>
+      </div>
+    </div>
+    <div class="notes-pdf-view" id="pdfNotesReader" hidden>
+      <p id="pdfPathHint"></p>
+      <iframe id="notesPdfFrame" title="Module PDF" loading="lazy"></iframe>
+    </div>
+    <div id="notePrintPages" aria-hidden="true"></div>
+  </section>
+</div>
+
 <script src="js/index.js"></script>
+<script src="js/notes-reader.js"></script>
 </body>
 </html>
